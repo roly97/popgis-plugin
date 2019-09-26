@@ -75,7 +75,8 @@ class PopGISUtil(object):
     #describeframeworks
     def get_frameworks(self, country):
         res = {}
-        request = urllib.request.Request('http://' + country.lower() + '.' + self.domain + '?SERVICE=TJS&REQUEST=DescribeFrameworks&AcceptVersions=1.0.0',headers={'User-Agent': 'Mozilla/5.0'})
+        #request = urllib.request.Request('http://' + country.lower() + '.' + self.domain + '?SERVICE=TJS&REQUEST=DescribeFrameworks&AcceptVersions=1.0.0',headers={'User-Agent': 'Mozilla/5.0'})
+        request = urllib.request.Request('http://phpstack-33049-287135.cloudwaysapps.com/GC_tjs.php' + '?SERVICE=TJS&REQUEST=DescribeFrameworks&AcceptVersions=1.0.0',headers={'User-Agent': 'Mozilla/5.0'})
         xml = urllib.request.urlopen(request, timeout = 1000).read()
         root = et.XML(xml)
         for child in root:
